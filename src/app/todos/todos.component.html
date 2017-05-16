@@ -1,0 +1,56 @@
+
+<!--<div class="alert alert-dismissible alert-info">
+  <strong>Heads up!</strong> Please <a href="#" class="alert-link">insert and enter </a>, but it's not super important.
+</div>-->
+
+
+<div *ngIf="appState=='default'">
+  <h3>Add Todo</h3>
+   <form (submit)="addTodo()" class="input-group">   
+      <input type="text" class="form-control"  required minlength="10" maxlength="50" [(ngModel)]="text" placeholder="what you want to do" name="name"> 
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="submit">Add</button>
+      </span>
+    </form>
+</div>
+
+<div *ngIf="appState=='edit'">
+  <h3>Edit Todo</h3>
+  <form (submit)="updateTodo()">
+      <input  class="form-control" type="text"  required minlength="10" maxlength="50" [(ngModel)]="text"  placeholder="what you want to do" name="todo">
+  </form>
+</div>
+<h3>Todo List</h3>
+
+<div  class="well"> 
+  <div *ngFor="let todo of todos"> 
+    <div class="row">
+       <div class="col-sm-5" style="padding-bottom: 10px;">
+          <div *ngIf="todo.isDone=='true'">
+           <div style="color: #0bda0b;">
+             >>{{todo.text}}   
+           </div>  
+          </div>
+          <div *ngIf="todo.isDone=='false'">
+            <div style="color: #ffffff;">
+             >>{{todo.text}}   
+           </div>
+          </div>
+       </div>
+       <div class="col-sm-1">
+          <button class="btn btn-danger btn-xs" (click)="deleteTodo(todo.text)">delete</button>
+       </div>
+       <div class="col-sm-1">
+          <button class="btn btn-warning btn-xs" (click)="editTodo(todo)">edit</button>
+       </div>
+       <div class="col-sm-1">
+         <div *ngIf="todo.isDone=='true'">
+           <button class="btn btn-success btn-xs" (click)="updateStatus(todo.text)">Not yet</button>        
+          </div>
+          <div *ngIf="todo.isDone=='false'">
+           <button class="btn btn-danger btn-xs" (click)="updateStatus(todo.text)">Isdone</button>
+          </div>
+       </div>
+    </div>
+  </div>
+</div>
