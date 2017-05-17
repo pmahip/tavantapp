@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodosComponent } from './todos/todos.component';
 import { HomeComponent } from './home/home.component';
+import { ExpenseComponent } from './expense/expense.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodosComponent,
-    HomeComponent
+    HomeComponent,
+    ExpenseComponent
   ],
   imports: [
     BrowserModule,
