@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
+import {Init} from '../todos/init.todos';
 
 @Injectable()
-export class TodoService {
+export class TodoService extends Init {
 
   constructor() { 
-   // console.log("Initializing...");
+    super();
+    this.load();
   }
 
   getTodos(){

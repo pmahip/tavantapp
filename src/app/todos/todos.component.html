@@ -37,13 +37,13 @@
            </div>
           </div>
        </div>
-       <div class="col-sm-1">
+       <div class="col-sm-1" *ngIf="todo.text!=''">
           <button class="btn btn-danger btn-xs" (click)="deleteTodo(todo.text)">delete</button>
        </div>
-       <div class="col-sm-1">
+       <div class="col-sm-1"  *ngIf="todo.text !=''">
           <button class="btn btn-warning btn-xs" (click)="editTodo(todo)">edit</button>
        </div>
-       <div class="col-sm-1">
+       <div class="col-sm-1"  *ngIf="todo.text!=''">
          <div *ngIf="todo.isDone=='true'">
            <button class="btn btn-success btn-xs" (click)="updateStatus(todo.text)">Not yet</button>        
           </div>
