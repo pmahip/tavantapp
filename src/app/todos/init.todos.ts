@@ -1,6 +1,6 @@
 export class Init{
     load(){
-        if(localStorage.getItem('todos') ===null || localStorage.getItem('todos') == undefined){
+        if(localStorage.getItem('todos') == null || localStorage.getItem('todos') == undefined){
             console.log("no todos found ...creating...");
             var todos=[
                 {
